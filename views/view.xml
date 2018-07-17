@@ -1,0 +1,37 @@
+<openerp>
+    <data>
+    	<record id="report_operation_lines_search_view" model="ir.ui.view">   
+		    <field name="name">operaciones/empleados_search_view</field>   
+		    <field name="model">mrp.report.production.line</field>   
+		    <field name="arch" type="xml">       
+		        <search string="Filtros">           
+		            <filter name="group_production_order" string="POR ORDEN DE PRODUCCION" icon="terp-partner" context="{'group_by':'mrp_production_id'}"/>
+		            <filter name="group_operation" string="POR OPERACION" icon="terp-partner" context="{'group_by':'operation_id'}"/>
+		            <filter name="group_production" string="POR EMPLEADO" icon="terp-partner" context="{'group_by':'production_id'}"/>       
+		        </search>   
+		    </field>
+		</record>
+        <record id="view_tree_report_operation_lines" model="ir.ui.view">
+            <field name="name">Reporte por operaciones/empleados</field>
+            <field name="model">mrp.report.production.line</field>
+            <field name="arch" type="xml">
+                <tree >
+                    <field name="mrp_production_id" />
+                    <field name="operation_id" />
+                    <field name="production_id" />
+                    <field name="qty"/>
+                    <field name="precio_unit" />
+                    <field name="total" />
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <act_window
+            id="action_report_operation_lines"
+            name="Reporte de operaciones/empleados"
+            res_model="mrp.report.production.line"
+            view_mode="tree"
+        />
+        <menuitem parent="mrp.menu_mrp_reporting" action="action_report_operation_lines" id="menu_mrpreportproductionlines" sequence="11"/>
+    </data>
+</openerp>
