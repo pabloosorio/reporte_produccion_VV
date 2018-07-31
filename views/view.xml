@@ -1,5 +1,6 @@
 <openerp>
     <data>
+        <!-- comentario prueba -->
     	<record id="report_operation_lines_search_view" model="ir.ui.view">   
 		    <field name="name">operaciones/empleados_search_view</field>   
 		    <field name="model">mrp.report.production.line</field>   
